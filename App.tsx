@@ -3,7 +3,8 @@ import { NativeBaseProvider } from 'native-base';
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto';
 import OneSignal from 'react-native-onesignal';
 
-OneSignal.setAppId('981a2f30-12d9-4f28-9e81-0cc3bd29c4f0')
+OneSignal.setAppId('87f5490d-7b83-49ce-9432-16b1769d1bf5')
+OneSignal.setEmail('carloseduardoalvesgodoi@hotmail.com')
 
 import { Routes } from './src/routes';
 
