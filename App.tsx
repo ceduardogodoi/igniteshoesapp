@@ -10,6 +10,7 @@ import { Loading } from './src/components/Loading';
 import { tagUserInfoCreate } from './src/notifications/notificationsTags'
 
 import { CartContextProvider } from './src/contexts/CartContext';
+import { useEffect } from 'react';
 
 OneSignal.setAppId('87f5490d-7b83-49ce-9432-16b1769d1bf5')
 // OneSignal.setEmail('carloseduardoalvesgodoi@hotmail.com')
@@ -18,6 +19,15 @@ export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
 
   tagUserInfoCreate();
+
+  useEffect(() => {
+    const unsubscribe = OneSignal
+      .setNotificationWillShowInForegroundHandler(notificationReceivedEvent => {
+        console.log(JSON.stringify(notificationReceivedEvent, null, 2));
+      })
+
+    return unsubscribe;
+  }, []);
 
   return (
     <NativeBaseProvider theme={THEME}>
