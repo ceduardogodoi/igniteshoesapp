@@ -21,8 +21,18 @@ export default function App() {
   tagUserInfoCreate();
 
   useEffect(() => {
-    const unsubscribe = OneSignal.setNotificationOpenedHandler(() => {
-      console.log('Notificação aberta');
+    const unsubscribe = OneSignal.setNotificationOpenedHandler(response => {
+      const { actionId } = response.action as any
+      switch (actionId) {
+        case '1':
+          console.log('Ver todas');
+          break;
+        case '2':
+          console.log('Ver pedido');
+          break;
+        default:
+          console.log('Não foi clicado em botão de ação');
+      }
     })
 
     return () => unsubscribe;
