@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useTheme } from 'native-base';
 import { DefaultTheme, LinkingOptions, NavigationContainer } from '@react-navigation/native';
 import OneSignal, { OSNotification } from 'react-native-onesignal';
+// import * as Linking from 'expo-linking';
 
 import { Notification } from '../components/Notification';
 
@@ -29,6 +30,13 @@ export function Routes() {
 
   const theme = DefaultTheme;
   theme.colors.background = colors.gray[700];
+
+  // const deepLinking = Linking.createURL('details', {
+  //   queryParams: {
+  //     productId: '7',
+  //   },
+  // });
+  // console.log(deepLinking);
 
   useEffect(() => {
     const unsubscribe = OneSignal
