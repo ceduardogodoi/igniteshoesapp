@@ -15,10 +15,8 @@ const linking: LinkingOptions<ReactNavigation.RootParamList> = {
       details: {
         path: 'details/:productId',
         parse: {
-          productId(productId: string) {
-            return productId;
-          }
-        }
+          productId: (productId: string) => productId,
+        },
       },
     },
   },
